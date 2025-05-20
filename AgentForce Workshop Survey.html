@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      color: #222;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 40px 50px;
+      border-radius: 16px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      max-width: 700px;
+      width: 100%;
+      box-sizing: border-box;
+      color: #333;
+    }
+
+    h1 {
+      color: #003366;
+      margin-bottom: 40px;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    form > * {
+      margin-bottom: 24px;
+    }
+
+    label.section-title {
+      font-size: 1.3rem;
+      color: #003366;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      display: block;
+      font-weight: 600;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 8px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      color: #444;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      margin-top: 6px;
+      border: 1.8px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      color: #333;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #007BFF;
+      outline: none;
+      box-shadow: 0 0 8px rgba(0,123,255,0.4);
+    }
+
+    input[type="submit"] {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 16px 0;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 10px;
+      width: 100%;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0,123,255,0.4);
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+      box-shadow: 0 8px 16px rgba(0,86,179,0.6);
+    }
+
+    .thank-you {
+      margin-top: 30px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #004080;
+      text-align: center;
+    }
+
+    .star-rating,
+    .relevant-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 10px 0;
+    }
+
+    .star-option {
+      flex: 1 1 48%;
+      display: flex;
+      align-items: center;
+      border: 1.5px solid transparent;
+      border-radius: 8px;
+      padding: 10px 12px;
+      transition: 0.3s;
+      background-color: #f9f9f9;
+      cursor: pointer;
+    }
+
+    .star-option:hover {
+      border-color: #007BFF;
+      background-color: #e6f0ff;
+    }
+
+    .star-option input[type="radio"] {
+      display: none;
+    }
+
+    .star-option label {
+      flex: 1;
+      color: #666;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .star-option input[type="radio"]:checked + label {
+      color: #007BFF;
+      font-weight: 700;
+    }
+
+    .multi-select-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-left: 4px;
+    }
+
+    .multi-select-options label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .multi-select-options input[type="checkbox"] {
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      .container {
+        padding: 30px 25px;
+        max-width: 100%;
+      }
+
+      .star-rating .star-option,
+      .relevant-options .star-option {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AgentForce Workshop Survey</h1>
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D200000005EpP" method="POST">
+      
+      <input type="hidden" name="orgid" value="00D200000005EpP" />
+      <input type="hidden" name="retURL" value="http://" />
+      <input type="hidden" name="Subject" value="AgentForce Workshop Survey" />
+      <input type="hidden" name="Origin" value="Web" />
+      <input type="hidden" name="external" value="1" />
+
+      <label class="section-title">1. How would you rate your overall experience attending AgentForce Experience?</label>
+      <div class="star-rating">
+        <div class="star-option"><input type="radio" id="star5" name="experience" value="5" /><label for="star5">★ Very satisfied</label></div>
+        <div class="star-option"><input type="radio" id="star4" name="experience" value="4" /><label for="star4">★ Satisfied</label></div>
+        <div class="star-option"><input type="radio" id="star3" name="experience" value="3" /><label for="star3">★ Neutral</label></div>
+        <div class="star-option"><input type="radio" id="star2" name="experience" value="2" /><label for="star2">★ Dissatisfied</label></div>
+        <div class="star-option"><input type="radio" id="star1" name="experience" value="1" required /><label for="star1">★ Very dissatisfied</label></div>
+      </div>
+
+      <label class="section-title">2. How relevant was this workshop to your business?</label>
+      <div class="relevant-options">
+        <div class="star-option"><input type="radio" id="relevant1" name="relevant" value="1" required /><label for="relevant1">1 - Not relevant at all</label></div>
+        <div class="star-option"><input type="radio" id="relevant2" name="relevant" value="2" /><label for="relevant2">2 - Somewhat Relevant</label></div>
+        <div class="star-option"><input type="radio" id="relevant3" name="relevant" value="3" /><label for="relevant3">3 - Neutral</label></div>
+        <div class="star-option"><input type="radio" id="relevant4" name="relevant" value="4" /><label for="relevant4">4 - Relevant</label></div>
+        <div class="star-option"><input type="radio" id="relevant5" name="relevant" value="5" /><label for="relevant5">5 - Very Relevant</label></div>
+      </div>
+
+      <label class="section-title">3. Which are your top business priorities to drive growth and success?</label>
+      <div class="multi-select-options">
+        <label><input type="checkbox" name="priorities[]" value="Find more quality leads and automate real-time personalization to increase conversions" />Find more quality leads and automate real-time personalization</label>
+        <label><input type="checkbox" name="priorities[]" value="Increase sales productivity and win more deals" />Increase sales productivity and win more deals</label>
+        <label><input type="checkbox" name="priorities[]" value="Better customer service support with real-time engagement" />Better customer service support with real-time engagement</label>
+        <label><input type="checkbox" name="priorities[]" value="Drive decision with data and insights" />Drive decision with data and insights</label>
+        <label><input type="checkbox" name="priorities[]" value="Increase business process to reduce silos and high manual efforts" />Increase business process to reduce silos and high manual efforts</label>
+        <label><input type="checkbox" name="priorities[]" value="Communicate with your team and customers faster" />Communicate with your team and customers faster</label>
+      </div>
+
+      <label class="section-title">4. What did you enjoy most about AgentForce Experience?</label>
+      <textarea id="enjoy" name="enjoy" maxlength="300"></textarea>
+
+      <label class="section-title">5. What can we do to improve AgentForce Experience in the future?</label>
+      <textarea id="improve" name="improve" maxlength="300"></textarea>
+
+      <label class="section-title">6. Personal Details</label>
+      <label for="name">Full Name</label>
+      <input id="name" name="name" type="text" maxlength="40" />
+      <label for="company">Company Name</label>
+      <input id="company" name="company" type="text" maxlength="40" />
+      <label for="phone">Contact No.</label>
+      <input id="phone" name="phone" type="text" maxlength="40" />
+      <label for="email">Email Address</label>
+      <input id="email" name="email" type="text" maxlength="40" />
+
+      <p class="thank-you">❤️ Thank you for your time and valuable input! ❤️</p>
+      <input type="submit" value="Submit Survey" />
+    </form>
+  </div>
+</body>
+</html>
